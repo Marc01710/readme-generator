@@ -18,11 +18,11 @@ function renderLicenseBadge(license) {
 
 function renderLicenseLink(license) {
   if (license === 'MIT') {
-    return '[MIT License](https://opensource.org/licenses/MIT)';
+    return 'https://opensource.org/licenses/MIT)';
   } else if (license === 'GPL 3.0') {
-    return '[GPL 3.0 License](https://www.gnu.org/licenses/gpl-3.0)';
+    return 'https://www.gnu.org/licenses/gpl-3.0';
   } else if (license === 'BSD 3') {
-    return '[BSD 3 License](https://opensource.org/licenses/BSD-3-Clause)';
+    return 'https://opensource.org/licenses/BSD-3-Clause';
   } else {
     return '';
   }
@@ -32,16 +32,14 @@ function renderLicenseLink(license) {
 // If there is no license, return an empty string
 
 function renderLicenseSection(license) {
-  const licenseBadge = renderLicenseBadge(license);
-  const licenseLink = renderLicenseLink(license);
+  const licenseTexts = {
+    MIT: 'This project is licensed under the MIT License.',
+    "GPL 3.0": 'This project is licensed under the GPL 3.0 License.',
+    BSD_3: 'This project is licensed under the BSD 3 License.',
+    None: ''
+  };
 
-  if (licenseBadge && licenseLink) {
-    return `## License
-    This project is licensed under the ${license} license.
-    For more information, please refer to the ${licenseLink}.`;
-  } else {
-    return '';
-  }
+  return licenseTexts[license] || '';
 }
 
 // Created a function to generate markdown for README
@@ -79,12 +77,13 @@ function generateMarkdown(data) {
 
   Screen-share video of the ${data.title} Application:
 
-    [![readme-generator]
     [![${data.title}]]
+  ## License
 
   ${renderLicenseSection(data.license)}
 
-    ${data.license}
+  For more informations, please visit: [License Link](${renderLicenseLink(data.license)})
+  
 
   ## How to contribute
 
@@ -98,7 +97,7 @@ function generateMarkdown(data) {
 
   ## Questions
 
-    If you have any questions about the repository, open an issue or contact me directly at ${data.email}. You can find more of my work at [${data.username}](https://github.com/${data.username}).`;
+  If you have any questions about the repository, open an issue or contact me directly at ${data.email}. You can find more of my projects at https://github.com/${data.username}`;
 
 };
 

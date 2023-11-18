@@ -1,9 +1,8 @@
 # readme-generator
-# 
   ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
   ## Description
-
+    
 
 
   ## Table of Contents
@@ -30,15 +29,10 @@
 
 
 
-  Screen-share video of the  Application:
-
-    [![]
 
   ## License
-    This project is licensed under the MIT license.  
-    For more information, please refer to the ![MIT License](https://opensource.org/licenses/MIT).
+    
 
-    MIT
 
   ## How to Contribute
 
